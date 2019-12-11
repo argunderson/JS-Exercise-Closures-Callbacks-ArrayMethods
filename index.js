@@ -15,7 +15,7 @@
  * should return 'foofoo'.
  */
 function processFirstItem(stringList, callback) {
-    return callback(stringList[0]);
+	return callback(stringList[0]);
 }
 
 // ⭐️ Example Challenge END ⭐️
@@ -48,8 +48,8 @@ function processFirstItem(stringList, callback) {
  * should return "There are 0".
  */
 function processLength(list, callback) {
-    /* CODE HERE */
-    return callback(list.length);
+	/* CODE HERE */
+	return callback(list.length);
 }
 
 /**
@@ -67,8 +67,8 @@ function processLength(list, callback) {
  * should return 'barbar'.
  */
 function processLastItem(stringList, callback) {
-    /* CODE HERE */
-    return callback(stringList[stringList.length - 1]);
+	/* CODE HERE */
+	return callback(stringList[stringList.length - 1]);
 }
 
 /**
@@ -89,12 +89,12 @@ function processLastItem(stringList, callback) {
  * should return 1000.
  */
 function processSum(numberList, callback) {
-    /* CODE HERE */
-    let sum = 0;
-    numberList.length > 0
-        ? (sum = numberList.reduce((acc, value) => acc + value))
-        : sum;
-    return callback(sum);
+	/* CODE HERE */
+	let sum = 0;
+	numberList.length > 0
+		? (sum = numberList.reduce((acc, value) => acc + value))
+		: sum;
+	return callback(sum);
 }
 
 /**
@@ -116,8 +116,8 @@ function processSum(numberList, callback) {
  * should return 1000.
  */
 function processProduct(num1, num2, callback) {
-    /* CODE HERE */
-    return callback(num1 * num2);
+	/* CODE HERE */
+	return callback(num1 * num2);
 }
 
 /**
@@ -141,7 +141,7 @@ function processProduct(num1, num2, callback) {
  * should return "sad".
  */
 function processContains(item, list, callback) {
-    return callback(list.includes(item) ? true : false);
+	return callback(list.includes(item) ? true : false);
 }
 
 /**
@@ -164,10 +164,10 @@ function processContains(item, list, callback) {
  * should return 3.
  */
 function processDuplicateFree(list, callback) {
-    /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
-    let listSet = new Set(list);
-    let newList = Array.from(listSet);
-    return callback(newList);
+	/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+	// let listSet = new Set(list);
+	// let newList = Array.from(listSet);
+	return callback([...new Set(list)]);
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -189,12 +189,12 @@ function processDuplicateFree(list, callback) {
  * The full names appear in the array in the same order the runners appear in the `runners` array.
  */
 function getFullNames(runners) {
-    /* CODE HERE */
-    let fullNames = [];
-    runners.forEach(runner =>
-        fullNames.push(`${runner.last_name}, ${runner.first_name}`)
-    );
-    return fullNames;
+	/* CODE HERE */
+	let fullNames = [];
+	runners.forEach(runner =>
+		fullNames.push(`${runner.last_name}, ${runner.first_name}`)
+	);
+	return fullNames;
 }
 
 /**
@@ -210,9 +210,9 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
  */
 function firstNamesAllCaps(runners) {
-    /* CODE HERE */
-    let namesAllCap = runners.map(runner => runner.first_name.toUpperCase());
-    return namesAllCap;
+	/* CODE HERE */
+	let namesAllCap = runners.map(runner => runner.first_name.toUpperCase());
+	return namesAllCap;
 }
 
 /**
@@ -229,11 +229,11 @@ function firstNamesAllCaps(runners) {
  * The runners in the array appear in the same order they appear in the `runners` array.
  */
 function getRunnersByTShirtSize(runners, tShirtSize) {
-    /* CODE HERE */
-    let runnerWTShirtSize = runners.filter(
-        runner => runner.shirt_size === tShirtSize
-    );
-    return runnerWTShirtSize;
+	/* CODE HERE */
+	let runnerWTShirtSize = runners.filter(
+		runner => runner.shirt_size === tShirtSize
+	);
+	return runnerWTShirtSize;
 }
 
 /**
@@ -247,12 +247,12 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @returns a number which is the sum of the donations by all runners.
  */
 function tallyUpDonations(runners) {
-    /* CODE HERE */
-    let totalDonations = runners.reduce(
-        (acc, runner) => acc + runner.donation,
-        0
-    );
-    return totalDonations;
+	/* CODE HERE */
+	let totalDonations = runners.reduce(
+		(acc, runner) => acc + runner.donation,
+		0
+	);
+	return totalDonations;
 }
 
 /////////////// CLOSURES ///////////////
@@ -272,13 +272,13 @@ function tallyUpDonations(runners) {
  * etc
  */
 function counterMaker() {
-    // BROKEN CODE STARTS
-    let count = 0;
-    function counter() {
-        return count++;
-    }
-    return counter;
-    // BROKEN CODE ENDS
+	// BROKEN CODE STARTS
+	let count = 0;
+	function counter() {
+		return count++;
+	}
+	return counter;
+	// BROKEN CODE ENDS
 }
 
 /**
@@ -302,13 +302,13 @@ function counterMaker() {
  * etc
  */
 function counterMakerWithLimit(num) {
-    /* CODE HERE */
-    let count = 0;
-    function counter() {
-        count > num ? (count = 0) : count;
-        return count++;
-    }
-    return counter;
+	/* CODE HERE */
+	let count = 0;
+	function counter() {
+		count > num ? (count = 0) : count;
+		return count++;
+	}
+	return counter;
 }
 
 /////////////// END OF CHALLENGE ///////////////
@@ -316,46 +316,46 @@ function counterMakerWithLimit(num) {
 /////////////// END OF CHALLENGE ///////////////
 
 if (typeof exports !== "undefined") {
-    // IGNORE: Test/Env Detected
-    // For Node/Non-browser test env
-    module.exports = module.exports || {};
-    if (processFirstItem) {
-        module.exports.processFirstItem = processFirstItem;
-    }
-    if (processLength) {
-        module.exports.processLength = processLength;
-    }
-    if (processLastItem) {
-        module.exports.processLastItem = processLastItem;
-    }
-    if (processSum) {
-        module.exports.processSum = processSum;
-    }
-    if (processProduct) {
-        module.exports.processProduct = processProduct;
-    }
-    if (processContains) {
-        module.exports.processContains = processContains;
-    }
-    if (processDuplicateFree) {
-        module.exports.processDuplicateFree = processDuplicateFree;
-    }
-    if (getFullNames) {
-        module.exports.getFullNames = getFullNames;
-    }
-    if (firstNamesAllCaps) {
-        module.exports.firstNamesAllCaps = firstNamesAllCaps;
-    }
-    if (getRunnersByTShirtSize) {
-        module.exports.getRunnersByTShirtSize = getRunnersByTShirtSize;
-    }
-    if (tallyUpDonations) {
-        module.exports.tallyUpDonations = tallyUpDonations;
-    }
-    if (counterMaker) {
-        module.exports.counterMaker = counterMaker;
-    }
-    if (counterMakerWithLimit) {
-        module.exports.counterMakerWithLimit = counterMakerWithLimit;
-    }
+	// IGNORE: Test/Env Detected
+	// For Node/Non-browser test env
+	module.exports = module.exports || {};
+	if (processFirstItem) {
+		module.exports.processFirstItem = processFirstItem;
+	}
+	if (processLength) {
+		module.exports.processLength = processLength;
+	}
+	if (processLastItem) {
+		module.exports.processLastItem = processLastItem;
+	}
+	if (processSum) {
+		module.exports.processSum = processSum;
+	}
+	if (processProduct) {
+		module.exports.processProduct = processProduct;
+	}
+	if (processContains) {
+		module.exports.processContains = processContains;
+	}
+	if (processDuplicateFree) {
+		module.exports.processDuplicateFree = processDuplicateFree;
+	}
+	if (getFullNames) {
+		module.exports.getFullNames = getFullNames;
+	}
+	if (firstNamesAllCaps) {
+		module.exports.firstNamesAllCaps = firstNamesAllCaps;
+	}
+	if (getRunnersByTShirtSize) {
+		module.exports.getRunnersByTShirtSize = getRunnersByTShirtSize;
+	}
+	if (tallyUpDonations) {
+		module.exports.tallyUpDonations = tallyUpDonations;
+	}
+	if (counterMaker) {
+		module.exports.counterMaker = counterMaker;
+	}
+	if (counterMakerWithLimit) {
+		module.exports.counterMakerWithLimit = counterMakerWithLimit;
+	}
 }
